@@ -1,0 +1,50 @@
+version: "3.2"
+services:
+  auth_php:
+    build: 
+      context: './php/'
+      args:
+       PHP_VERSION: ${PHP_VERSION}
+    networks:
+      - backend
+    volumes:
+      - ${PROJECT_ROOT}/:/var/www/html/
+    container_name: auth_php
+  auth_apche:
+    build:
+      context: './apache/'
+      args:
+       APACHE_VERSION: ${APACHE_VERSION}
+    depends_on:
+      - auth_php
+      - auth_sql
+    networks:
+      - frontend
+      - backend
+      - proxy
+    ports:
+      - "8004:80"
+    volumes:
+      - ${PROJECT_ROOT}/:/var/www/html/
+    container_name: auth_apche
+  auth_sql:
+    image: mysql:${MYSQL_VERSION:-latest}
+    restart: always
+    ports:
+      - "3308:3306"
+    volumes:
+            - data:/var/lib/mysql
+    networks:
+      - backend
+    environment:
+      MYSQL_ROOT_PASSWORD: "gR1zzly"
+      MYSQL_DATABASE: "${DB_NAME}"
+      MYSQL_USER: "appUse"
+      MYSQL_PASSWORD: "useApp"
+    container_name: auth_sql
+networks:
+  frontend:
+  backend:
+  proxy:
+volumes:
+  data:

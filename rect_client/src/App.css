@@ -1,0 +1,209 @@
+/* general settings */
+
+body {
+    background: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+iframe {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    overflow: -moz-hidden-unscrollable;
+}
+
+
+/* login settings */
+
+#loginCont {
+    position: fixed;
+    border-radius: 5px;
+    color: white;
+    bottom: 0px;
+    left: 0px;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    transition: 1s;
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    z-index: 13;
+}
+
+#loginTuggle:active {
+    background-color: aqua;
+}
+
+#loginForm {
+    transition: 1s;
+    display: inline-blick;
+    padding: 5px;
+    overflow: none;
+    background: rgb(26, 3, 78);
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-left: 110px;
+}
+
+.absolt {
+    position: absolute;
+}
+
+#loginTuggle {
+    z-index: 10;
+    display: flex;
+    padding: 15px;
+    margin: auto;
+    font-size: 30px;
+    background: rgb(19, 1, 61);
+}
+
+.loginTxtInp {
+    padding: 1px 12px;
+    margin: 0px, 12px;
+    display: inline-block;
+    border: none;
+}
+
+.loginLable {
+    padding: 1px 12px;
+    margin: 0px, 12px;
+    display: inline-block;
+    border: none;
+}
+
+
+/* app container settings */
+
+#pageTitle {
+    background: white;
+    font-size: 3.5vw;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+}
+
+.frameHome {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.frameCont {
+    margin-top: 4.3vw;
+}
+
+.actFrame {
+    position: inherit;
+    width: 50vmin;
+    height: 50vmin;
+    transition: 0.5s;
+    margin: 5px;
+}
+
+.frameGrow {
+    position: absolute;
+    z-index: 10;
+    width: 94%;
+    height: 90%;
+    left: 0;
+    top: 0;
+    margin: 5% 3%;
+}
+
+.exitFrame {
+    position: absolute;
+    margin: 5% 3%;
+    z-index: -2;
+    top: 7%;
+    left: 4%;
+    font-size: 3vmin;
+    width: 5vmin;
+}
+
+.exitFrame:hover {
+    background-color: darkslategrey;
+}
+
+.exitFrame:active {
+    color: white;
+    background: black;
+}
+
+.iframeCover {
+    position: relative;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    top: -52vmin;
+}
+
+#outer {
+    perspective: 1000px;
+}
+
+#inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+#front {
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+}
+
+#back {
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+
+.flipped {
+    transform: rotateY(180deg);
+}
+
+.counterLable {
+    color: white;
+}
+
+.chartCont {
+    background: white;
+    height: 50vmin;
+    width: 100vmin;
+    margin: 22vmin auto 5vmin auto;
+    border-radius: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/*
+flexPage:
+id='pageCont'
+id='front'
+id='back'
+id='pageTitle'
+-----------
+pageFrame:
+className='frameCont'
+className='exitFrame'
+className='actFrame'
+claddNme='counterLable'
+className="iframeCover"
+*/

@@ -1,0 +1,12 @@
+  session_start();
+    $dbServerName = "mysqll";
+    $dbUserName = "root";
+    $dbPassword = "gR1zzly";
+    $dbName = "users";
+    $u_ID = filter_var($_POST["uname"], FILTER_SANITIZE_STRING);
+    $u_PASS = filter_var($_POST["upass"], FILTER_SANITIZE_STRING);
+    $conn = new mysqli($dbServerName, $dbUserName, $dbPassword, $dbName);
+    if ($mysqli->connect_errno) {
+        $conn->close();
+        exit();
+    }	 
