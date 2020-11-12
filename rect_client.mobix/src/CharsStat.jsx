@@ -9,10 +9,10 @@ export default class LineGraph extends Component {
         this.state={datn:this.props.dat}
     }
 
-    componentWillReceiveProps(nextProps){
+    /*componentWillReceiveProps(nextProps){
         this.setState={datn:nextProps.dat}
         this.createChart();
-    }
+    }*/
 
 
     createChart=()=>{

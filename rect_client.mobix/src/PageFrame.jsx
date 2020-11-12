@@ -22,9 +22,9 @@ export default class PageFrame extends React.Component{
             )
     }
 
-    componentWillReceiveProps(nextProps){
+    /*componentWillReceiveProps(nextProps){
         this.setState={value:nextProps.value}
-    }
+    }*/
 
     navigate=(e)=>{
         document.getElementById(

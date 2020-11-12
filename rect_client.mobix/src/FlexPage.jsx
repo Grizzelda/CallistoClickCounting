@@ -4,6 +4,7 @@ import getSampDat from './SampleData.jsx'
 import PageFrame from './PageFrame.jsx'
 import Login from './Login.jsx'
 import LineGraph from './CharsStat.jsx'
+import { Observer, observer } from "mobx-react-lite"
 export default class FlexPage extends React.Component{
 
     constructor(props){
@@ -52,14 +53,14 @@ export default class FlexPage extends React.Component{
     inflateFrames=()=>{
         const elms=[];
         for(var i=0; i<this.state.dati.length; i++)
-            elms.push(<PageFrame 
+            elms.push(<Observer><PageFrame 
                 stato={this.state.sessionState}
                 name={this.state.dati[i].name}
                 source={this.state.dati[i].link}
                 mode={this.sessionState}
                 value={this.state.dati[i].val}
                 clis={this.clickInSession}
-                 />)
+                 /></Observer>)
         return elms;
     }
 
@@ -69,7 +70,7 @@ export default class FlexPage extends React.Component{
               
                 <Login stato={this.state.sessionState} goin={this.changeState} />
                 <div id='pageTitle'>#Gilad_Carasso_Callisto_testSubject_webAnalitics</div>
-                {this.state.sessionState==1?<LineGraph dat={this.state.dati} showMe={this.state.sessionState} />:''}
+                {this.state.sessionState==1?<Observer><LineGraph dat={this.state.dati} showMe={this.state.sessionState} /></Observer>:''}
                 <div id='outer'>
                   <div id="inner">
                     <div id='front' className='frameHome'>

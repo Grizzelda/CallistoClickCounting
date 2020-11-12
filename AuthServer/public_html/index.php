@@ -6,6 +6,7 @@
   
   $u_ID = filter_var($_GET["un"], FILTER_SANITIZE_STRING);
   $u_PASS = filter_var($_GET["up"], FILTER_SANITIZE_STRING);
+  $s_sl = filter_var($_GET["sl"], FILTER_SANITIZE_STRING);
   $s_pk = $s_ID . "_". $s_PASS;
   
   $conn = new mysqli($dbServerName, $dbUserName, $dbPassword, $dbName);
@@ -22,7 +23,7 @@
         $conn->close();
         $conn = new mysqli($dbServerName, $dbUserName, $dbPassword, $dbName);
         if( ($result -> num_rows)==1){
-            $queryy = 'SELECT * FROM clickCount';
+            $queryy = 'SELECT * FROM clickCount WHERE page="' . $s_sl . '"';
             if ($result = $conn -> query($queryy)) {
                 $conn->close();
                 $inform='1;';
